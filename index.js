@@ -1,8 +1,9 @@
 var express = require('express');
 var fs = require('fs');
+var connect = require('connect');
 var htmlfile = "index.html";
 
-var app = express.createServer(express.logger());
+var app = connect.createServer(connect.logger());
 
 app.get('/',function(request,response){
     var html = fs.readFileSync(htmlfile).toString();
