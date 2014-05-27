@@ -7,7 +7,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(request, response) {
   buffer = fs.readFileSync('index.html')
-  display_on_website = buffer.toString("utf-8",0,28)
+  display_on_website = buffer.toString("utf-8")
   response.send(display_on_website)
 })
 
