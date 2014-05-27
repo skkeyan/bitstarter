@@ -1,16 +1,15 @@
-var express = require('express')
-var app = express();
-var fs = require ('fs')
+var express = require('express');
+var fs = require('fs');
+var htmlfile = "index.html";
 
-app.set('port', (process.env.PORT || 5000))
-app.use(express.static(__dirname + '/public'))
+var app = express.createServer(express.logger());
 
-app.get('/', function(request, response) {
-  buffer = fs.readFileSync('index.html')
-  display_on_website = buffer.toString("utf-8")
-  response.send(display_on_website)
-})
+app.get('/',function(request,response){
+    var html = fs.readFileSync(htmlfile).toString();
+    response.send(html);
+});
 
-app.listen(app.get('port'), function() {
-  console.log("Node app is running at localhost:" + app.get('port'))
-})
+var port = process.env.PORT || 8080;
+app.listen(port,function(){
+    console.log("Listening on "+ port);
+});
