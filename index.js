@@ -7,7 +7,7 @@ http.createServer(function(request,response) {
     response.writeHead('content-type','text/plain');
     response.write(html);
     response.end();
-}).listen(process.env.port || 8080);
+}).listen(process.env.PORT || 8080);
 
 console.log('Listening on port 8080...');
 
